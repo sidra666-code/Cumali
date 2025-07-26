@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cumali ∞ Nisa</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('cumali.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      background: rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+      color: white;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+    }
+
+    .message {
+      background: rgba(255, 105, 180, 0.9);
+      padding: 12px;
+      border-radius: 15px;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #ffccff;
+      margin-bottom: 10px;
+    }
+
+    .hint {
+      font-size: 14px;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      margin-bottom: 15px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff5eb0, #ff3399);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #ff3399, #ff1493);
+    }
+
+    @media (max-height: 600px) {
+      .container {
+        padding: 15px 10px;
+      }
+
+      .message {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      Küçük bir tartışma, büyük bir sevgiyi gölgeleyemez... Seni çok seviyorum, özür dilerim. ☁️❤️
+    </div>
+    <h1>♡ Cumali ∞ Nisa ♡</h1>
+    <div class="hint">Bu özel sayfaya erişmek için lütfen şifreyi giriniz</div>
+    <div class="hint"><strong>İPUCU:</strong> "Çıkma Tarihimiz"</div>
+    <input type="password" id="sifre" placeholder="Şifreyi girin...">
+    <button onclick="kontrolEt()">Aç</button>
+  </div>
+
+  <script>
+    function kontrolEt() {
+      const sifre = document.getElementById("sifre").value;
+      if (sifre === "01012023") {
+        alert("Sayfa açılıyor... 💘");
+        window.location.href = "ozel.html";
+      } else {
+        alert("Şifre yanlış aşkım 😢");
+      }
+    }
+  </script>
+</body>
+</html>
