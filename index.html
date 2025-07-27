@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>♡ Cumali ∞ Nisa ♡</title>
   <style>
     * {
@@ -11,7 +11,7 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       width: 100%;
       font-family: 'Segoe UI', sans-serif;
@@ -81,7 +81,6 @@
     }
 
     button {
-      width: 100%;
       padding: 12px;
       font-size: 16px;
       font-weight: bold;
@@ -121,6 +120,23 @@
       50% { transform: translateY(10px); }
       100% { transform: translateY(0); }
     }
+
+    .sarki-buton {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      border: 3px solid #ff99cc;
+      background-image: url('cumali.png');
+      background-size: cover;
+      background-position: center;
+      animation: donme 4s linear infinite;
+      cursor: pointer;
+    }
+
+    @keyframes donme {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -141,6 +157,7 @@
 
   <!-- Kaydırılabilir içerik -->
   <div class="kaydir-container" id="icerikAlan" style="display:none;">
+
     <!-- Sayfa 2 -->
     <div class="ekran" style="background-image: url('cumali2.png');">
       <div class="icerik">
@@ -162,6 +179,62 @@
         </div>
       </div>
     </div>
+
+    <!-- Sayfa 4 - Bizim Şarkımız -->
+    <div class="ekran" style="background-color: #1c1b2a;">
+      <div class="icerik">
+        <h1 style="color: #ff66cc; font-family: 'Segoe Script', cursive;">Bizim Şarkımız</h1>
+        <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0;">
+          <button onclick="secSarki(0)" class="sarki-buton"></button>
+          <button onclick="secSarki(1)" class="sarki-buton"></button>
+          <button onclick="secSarki(2)" class="sarki-buton"></button>
+        </div>
+        <div style="margin: 15px auto; width: 100%; max-width: 300px; height: 530px; border: 2px solid #ff99cc; border-radius: 20px; overflow: hidden;">
+          <iframe id="sarkiFrame" width="100%" height="100%" src="https://www.youtube.com/embed/0W6z15lfi_I" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p style="margin-top: 20px; font-size: 16px; color: #ffc8f8;">Bu şarkıyı ilk duyduğumda aklıma sen geldin. Artık bizim şarkımız oldu.</p>
+      </div>
+    </div>
+
+    <!-- Sayfa 5 - Milyon Kere Nisa -->
+    <div class="ekran" style="background-color: #2c003e;">
+      <div class="icerik" style="max-width: 600px; text-align: left; font-size: 16px; line-height: 1.6;">
+        <h1 style="color: #ffccff; text-align: center;">MİLYON KERE NİSA</h1>
+        <p>
+          Ben bir Nisa'dır tutturmuşum.<br>
+          Oh ne iyi, Nisa'lı içkiler içip<br>
+          Sarhoş oluyorum, ne güzel...<br><br>
+          Hoşuma gitmiyorsa rengi denizlerin,<br>
+          Biraz Nisa sürüyorum, güzelleşiyor.<br>
+          Şarkılar söylüyorum,<br>
+          Şiirler yazıyorum Nisa üstüne.<br><br>
+          Saatim her zaman Nisa’ya beş var,<br>
+          Ya da Nisa’yı beş geçiyor.<br>
+          Gözümü yumsam aklımdan Nisa geçiyor.<br><br>
+          Mevsimlerden Nisa’dır,<br>
+          Günlerden Nisaertesidir.<br>
+          Odur beni yaşatan.<br><br>
+          İki kere iki dört, elde var Nisa.<br>
+          Bundan böyle dünyada,<br>
+          Aşkın adı Nisa.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sayfa 6 - Kapanış Mesajı -->
+    <div class="ekran" style="background-color: #000010;">
+      <div class="icerik" style="max-width: 600px; text-align: center; font-size: 18px; line-height: 1.8; background: rgba(255, 192, 203, 0.1); color: #ffccee;">
+        <h1 style="font-size: 30px; color: #ff99cc;">Hayatımmm</h1>
+        <p>
+          Seni çok fazla üzdüğümün farkındayım.<br>
+          Kendi adıma ve annemin sana dedikleri hakkında çok özür dilerim.<br>
+          Bundan sonra seni üzmemek için elimden ne geliyorsa yapacağım.<br>
+          Bana güven sen... Seni çok seviyorum…<br><br>
+          <strong style="color: #ff66aa;">Vazgeçilmezimmm</strong>
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <script>
@@ -193,6 +266,15 @@
       }, 1000);
     }
     tarihSayaci();
+
+    function secSarki(index) {
+      const sarkilar = [
+        "https://www.youtube.com/embed/0W6z15lfi_I",
+        "https://www.youtube.com/embed/60C7Hh89FTE",
+        "https://www.youtube.com/embed/8Qeka0rnLIg"
+      ];
+      document.getElementById("sarkiFrame").src = sarkilar[index];
+    }
   </script>
 
 </body>
