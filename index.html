@@ -2,35 +2,50 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cumali ∞ Nisa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>♡ Cumali ∞ Nisa ♡</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       height: 100%;
       width: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: url('cumali.png') no-repeat center center fixed;
-      background-size: cover;
+      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+
+    .kaydir-container {
+      height: 100vh;
+      width: 100vw;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+
+    .ekran {
+      width: 100vw;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+      scroll-snap-align: start;
     }
 
-    .container {
-      width: 90%;
-      max-width: 400px;
-      background: rgba(0, 0, 0, 0.4);
+    .icerik {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 25px;
       border-radius: 20px;
-      padding: 25px 20px;
-      text-align: center;
       color: white;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 400px;
     }
 
     .message {
@@ -44,7 +59,7 @@
     h1 {
       font-size: 26px;
       color: #ffccff;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .hint {
@@ -75,50 +90,110 @@
       border: none;
       border-radius: 25px;
       cursor: pointer;
-      transition: 0.3s ease;
     }
 
-    button:hover {
-      background: rgba(255, 20, 147, 0.9);
+    .sure-kutu {
+      background: rgba(128, 0, 128, 0.7);
+      padding: 15px 25px;
+      border-radius: 15px;
+      color: #ffb6ff;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      min-width: 80px;
     }
 
-    @media (max-height: 600px) {
-      .container {
-        padding: 15px 10px;
-      }
+    .sure-kutu div:first-child {
+      font-size: 28px;
+      color: #ff66cc;
+    }
 
-      .message {
-        font-size: 14px;
-      }
+    .ok {
+      font-size: 50px;
+      color: #ff69b4;
+      margin-top: 30px;
+      animation: okAnimasyon 1.5s infinite;
+      cursor: pointer;
+    }
 
-      h1 {
-        font-size: 22px;
-      }
+    @keyframes okAnimasyon {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+      100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="message">
-      Küçük bir tartışma, büyük bir sevgiyi gölgeleyemez... Seni çok seviyorum, özür dilerim. ☁️❤️
+
+  <!-- Şifre ekranı -->
+  <div class="ekran aktif" id="ilkSayfa" style="background-image: url('cumali.png'); position: absolute; top: 0; left: 0; z-index: 100; width: 100vw; height: 100vh;">
+    <div class="icerik">
+      <div class="message">
+        Küçük bir tartışma, büyük bir sevgiyi gölgeleyemez... Seni çok seviyorum, özür dilerim. ☁️❤️
+      </div>
+      <h1>♡ Cumali ∞ Nisa ♡</h1>
+      <div class="hint">Bu özel sayfaya erişmek için lütfen şifreyi giriniz</div>
+      <div class="hint"><strong>İPUCU:</strong> "Çıkma Tarihimiz"</div>
+      <input type="password" id="sifre" placeholder="Şifreyi girin...">
+      <button onclick="kontrolEt()">Aç</button>
     </div>
-    <h1>♡ Cumali ∞ Nisa ♡</h1>
-    <div class="hint">Bu özel sayfaya erişmek için lütfen şifreyi giriniz</div>
-    <div class="hint"><strong>İPUCU:</strong> "Çıkma Tarihimiz"</div>
-    <input type="password" id="sifre" placeholder="Şifreyi girin...">
-    <button onclick="kontrolEt()">Aç</button>
+  </div>
+
+  <!-- Kaydırılabilir içerik -->
+  <div class="kaydir-container" id="icerikAlan" style="display:none;">
+    <!-- Sayfa 2 -->
+    <div class="ekran" style="background-image: url('cumali2.png');">
+      <div class="icerik">
+        <h1>♡ Cumali ∞ Nisa ♡</h1>
+        <p>Gökyüzündeki yıldızlar kadar çok sebeplerim var seni sevmek içın. Her biri senin bir özelliğini, bir anını, bir gülüşünü temsil ediyor. Sen benim için sadece bir sevgili değil, tüm evrenimsin.....</p>
+        <div class="ok">↓</div>
+      </div>
+    </div>
+
+    <!-- Sayfa 3 -->
+    <div class="ekran" style="background-image: url('cumali3.png');">
+      <div class="icerik">
+        <h1>♡ Beraber Geçirdiğimiz Süre ♡</h1>
+        <div id="sureKutulari" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px;">
+          <div class="sure-kutu"><div id="gun">0</div><div>GÜN</div></div>
+          <div class="sure-kutu"><div id="saat">0</div><div>SAAT</div></div>
+          <div class="sure-kutu"><div id="dakika">0</div><div>DAKİKA</div></div>
+          <div class="sure-kutu"><div id="saniye">0</div><div>SANİYE</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
     function kontrolEt() {
-      const sifre = document.getElementById("sifre").value;
+      const sifre = document.getElementById("sifre").value.trim();
       if (sifre === "12/08/2023") {
-        alert("Sayfa açılıyor... 💘");
-        window.location.href = "ozel.html";
+        document.getElementById("ilkSayfa").style.display = "none";
+        document.getElementById("icerikAlan").style.display = "block";
       } else {
         alert("Şifre yanlış aşkım 😢");
       }
     }
+
+    function tarihSayaci() {
+      const baslangic = new Date("2023-08-12T00:00:00");
+      setInterval(() => {
+        const simdi = new Date();
+        const fark = simdi - baslangic;
+
+        const gun = Math.floor(fark / (1000 * 60 * 60 * 24));
+        const saat = Math.floor((fark / (1000 * 60 * 60)) % 24);
+        const dakika = Math.floor((fark / (1000 * 60)) % 60);
+        const saniye = Math.floor((fark / 1000) % 60);
+
+        document.getElementById("gun").textContent = gun;
+        document.getElementById("saat").textContent = saat;
+        document.getElementById("dakika").textContent = dakika;
+        document.getElementById("saniye").textContent = saniye;
+      }, 1000);
+    }
+    tarihSayaci();
   </script>
+
 </body>
 </html>
